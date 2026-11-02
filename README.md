@@ -1,18 +1,14 @@
 <div align="center">
 
-<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v2.jpg" alt="拾词 Word Atlas — 一词一画，点亮剑桥" width="100%"></a>
+<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v3.jpg" alt="拾词 Word Atlas — 一词一画，点亮剑桥" width="100%"></a>
 
 # 拾词 · Word Atlas
 
 **把单词变成画面，让复习有迹可循。**
 
-3,097 个剑桥 KET/PET 词条 · 原创插画 · 英美发音 · FSRS 间隔复习
+7,000+ 剑桥 KET/PET 词条 · 原创插画 · 英美发音 · AI 伴学 · FSRS 间隔复习
 
-[**立即体验 ↗**](https://0xlei.tech/words/)　 /　 [48 秒介绍](docs/assets/launch.mp4)　 /　 [下载词库](data/)　 /　 [English](README.en.md)
-
-[![Code: MIT](https://img.shields.io/badge/Code-MIT-17283B?style=flat-square)](LICENSE)
-[![Dataset: CC BY 4.0](https://img.shields.io/badge/Dataset-CC_BY_4.0-AD5038?style=flat-square)](CONTENT_LICENSE.md)
-[![Follow on X](https://img.shields.io/badge/X-@yangleiocx3-17283B?style=flat-square&logo=x&logoColor=white)](https://x.com/yangleiocx3)
+[**立即体验 ↗**](https://0xlei.tech/words/)　 /　 [48 秒介绍](docs/assets/launch.mp4)　 /　 [English](README.en.md)
 
 <br>
 
@@ -26,47 +22,48 @@
 
 ## 🚀 获取完整版 · macOS 桌面应用
 
-完整版是把整个拾词打包成**桌面应用**：下载安装包、解压、双击即用，所有功能全量解锁——全词库（7,000+ 词，A1–C2）、AI 例句与迷你故事、词音剧场、任意词看图评分、AI 随堂测、每日晨读微课、KET/PET 模考、口语评分、错词本与星图等。
+完整版把整个拾词打包成**桌面应用**：下载安装包、解压、双击即用，**无需 Node.js、无需命令行**，所有功能全量解锁。
 
-| | 开源版（本仓库） | 完整版安装包 |
-| :--- | :--- | :--- |
-| 形态 | 源码 + 数据，自行 `npm run dev` | macOS 桌面应用，解压即用 |
-| 词库 | 开源数据集（3,097 词，KET/PET） | 全量 7,000+ 词（A1–C2 全词库） |
-| AI 功能 | 需自备本地 Ollama | 支持（附使用说明） |
-| 学习进度 | 浏览器本地保存 | 本机保存，可导出导入 |
-| 授权 | MIT / CC BY 4.0（开源） | 个人买断，付费使用 |
-| 价格 | 免费 | **¥ 待定价** |
+**完整版包含**
+
+- **全词库 7,000+ 词**（A1–C2，远超开源公开数据集的 KET/PET 范围），一词一画
+- **AI 例句与迷你故事**：任意词即时生成 3 条例句 + 1 段 3 句迷你故事（本地 Ollama 驱动）
+- **词音剧场**：例句逐词高亮朗读，英/美音 + 三档语速 + 单词语音跟读
+- **任意词看图评分**：给你任意词卡，60 秒看图开口描述，关键词 + 核心词 + 长度三维评分
+- **AI 随堂测**：考纲词表 × 完形/释义，AI 无限出题
+- **每日晨读微课**：每天一篇用 3 个考纲词编成的迷你短文 + 中文对照
+- 以及全部真题题型、KET/PET 模考、口语三段式、听力/完形/拼写/造句、错词本、收藏、星图、FSRS 间隔复习、进度导出
+
+**价格**：**¥ 待定价**（个人买断，一次付费永久使用）
 
 **购买方式**（付款后自动发货：安装包下载链接 + 使用说明）：
 
 - 🛒 面包多 / 爱发电：`<!-- 待填：商品链接 -->`
 - 📦 百度网盘：`<!-- 待填：链接 + 提取码（付款后随单发送） -->`
 
-> 安装包为 macOS 版（Apple Silicon / Intel）。Windows 版制作中，敬请关注。
+**安装**：下载 zip → 解压 → 双击 `Word Atlas.app`（macOS 首次打开如提示"无法验证开发者"，请**右键 → 打开**一次即可）。AI 功能使用本地 Ollama，首次使用前运行 `OLLAMA_ORIGINS="*" ollama serve`。
+
+> 当前为 macOS 版（Apple Silicon）。Intel Mac / Windows 版制作中，敬请关注。
 
 ---
 
 拾词是一款以插画和语境为核心的剑桥 KET/PET 背词应用。看画面理解词义，听发音建立联系，再用主动回忆和间隔复习巩固记忆。无需账号，学习进度保存在自己的设备上。
 
-> **版本说明**：这个仓库提供拾词的开源基础版及配套数据集。完整版桌面应用单独付费，功能与仓库开源版不同：词库更大、AI 功能更全，安装包下载见上方「获取完整版」。仓库里的代码和内容分别遵循下方的 MIT / CC BY 4.0 授权。
-
-[产品预览](#产品预览) · [学习方式](#学习方式) · [本地运行](#本地运行) · [开放数据](#开放数据) · [参与贡献](#参与贡献)
+[产品预览](#产品预览) · [学习方式](#学习方式) · [发音与环境声](#发音与环境声样本) · [内容来源与局限](#内容来源与局限)
 
 ## 产品预览
 
 ### 一本可以听、可以练的单词图鉴
 
-<img src="docs/assets/atlas-desktop.jpg" alt="开源版桌面图鉴：插画词卡和词汇浏览" width="100%">
+<img src="docs/assets/atlas-desktop.jpg" alt="桌面版图鉴：插画词卡和词汇浏览" width="100%">
 
 <table>
 <tr>
-<td width="50%"><img src="docs/assets/today-mobile.jpg" alt="手机端今日学习页" width="100%"></td>
-<td width="50%"><img src="docs/assets/word-mobile.jpg" alt="手机端词卡，展示插画、英美发音与例句" width="100%"></td>
+<td width="50%"><img src="docs/assets/today-mobile.jpg" alt="今日学习页" width="100%"></td>
+<td width="50%"><img src="docs/assets/word-mobile.jpg" alt="词卡：插画、英美发音与例句" width="100%"></td>
 </tr>
 <tr><td align="center">每日计划，把注意力放在今天</td><td align="center">插画、词义、发音，在一张词卡里</td></tr>
 </table>
-
-<sub>以上为仓库开源版的实际界面。页首为品牌概念插画。</sub>
 
 ### 学过的词，汇成自己的星图
 
@@ -88,16 +85,21 @@
 | 环节 | 你会做什么 |
 | :--- | :--- |
 | **看见** | 每个词配一幅插画、中英释义、两条原创例句，以及搭配、词族和用法提示。 |
-| **听见** | 切换英音、美音，听日常例句朗读；部分词条另含第二条例句录音；对着麦克风跟读，浏览器实时对比发音并打分。 |
+| **听见** | 切换英音、美音，听日常例句朗读；对着麦克风跟读，应用实时对比发音并打分。 |
+| **AI 例句** | 任意词即时生成 3 条例句 + 1 段迷你故事（本地 Ollama 驱动，10 秒内出结果）。 |
+| **剧场** | 词音剧场：例句逐词高亮朗读，英/美音 + 三档语速，附单词语音跟读。 |
+| **看图说** | 任意词看图评分：60 秒倒计时，关键词命中 + 核心词 + 长度三维评分，练 Speaking。 |
+| **随堂测** | AI 随堂测：考纲词表 × 完形/释义，AI 无限出题，每次 4 题即时判分。 |
+| **晨读** | 每日晨读微课：每天一篇用 3 个考纲词编成的 25–35 词迷你短文 + 中文对照，词卡直达图鉴。 |
 | **备考** | 剑桥真题题型：完形填空、释义选词、看图选词，仿 KET/PET Reading 与 Speaking 出题，只测词义、不改记忆进度。 |
-| **模考** | KET/PET 限时模考升级为完整仿真卷：Reading（完形/释义/看图）+ Listening（听句选词/填空）混合 20 题 + 倒计时自动交卷，出成绩单和错题回顾。 |
+| **模考** | KET/PET 限时模考：Reading（完形/释义/看图）+ Listening（听句选词/填空）混合 20 题 + 倒计时自动交卷，出成绩单和错题回顾。 |
 | **口语** | 三段完整口试流程：Part 1 考官问答 → Part 2 看图描述（配词条插画）→ Part 3 话题扩展，关键词评分 + 参考回答，可跳过。 |
 | **测评** | 摸底测试按 A1→B1 递进测词汇量，推荐报考 KET/PET 并指出短板话题；PET 写作练习（邮件/短故事）含要点检查、字数与范文对照；临近考试时自动生成每日冲刺清单。 |
 | **听力** | 听例句选词 + 听句子填空（Listening 风格，自动判分，交替出题）；今日页答题进度环支持自定义每日打卡目标，达成即点亮。 |
 | **错题** | 答错的词自动进错题本：点词直达词条，一键「重练错题」再考一轮；「我的」页成绩趋势折线图展示历次真题/模考/听力得分走势。 |
-| **徽章** | 学习里程碑徽章墙：点亮词数、连续天数、模考高分、打字与正确率共 12 枚，达成自动颁发；搜索支持中英文（输入「环境」也能找到对应单词）。 |
+| **徽章** | 学习里程碑徽章墙：点亮词数、连续天数、模考高分、打字与正确率共 12 枚，达成自动颁发；搜索支持中英文。 |
 | **电台** | 单词电台：最近学过/收藏/薄弱词/全部词表任选，英音 → 美音 → 例句自动连播，暂停、跳词、从头重放，磨耳朵专用。 |
-| **辨析** | 易混词辨析：borrow/lend、watch/see 等 16 组高频易混词，例句挖空 2 选 1，答后逐组讲解；今日页提供 5 题速测（释义/完形/看图混合）。 |
+| **辨析** | 易混词辨析：borrow/lend、watch/see 等 16 组高频易混词，例句挖空 2 选 1，答后逐组讲解。 |
 | **目标** | 设定 KET/PET 考试日期后，今日页显示倒计时并自动计算每日新词量；「我的」页提供近 7 天学习周报和各话题掌握度。 |
 | **想起** | 看义选词、看图补句、听音辨词、拼写，逐步练习主动回忆。 |
 | **速刷** | 词卡速刷：正反面 3D 翻卡（正面单词+音标+英/美音，背面插画+释义+例句），点「认识/不认识」十张一轮快速过词。 |
@@ -129,10 +131,7 @@
 
 **本地优先。** 无需注册；看过的词条与媒体可缓存供离线使用。换设备前，请先导出进度备份。
 
-<details>
-<summary><b>听发音、例句与环境声样本</b></summary>
-
-
+## 发音与环境声样本
 
 拿 *abandon* 举例，点开就能听（在线播放）：
 
@@ -142,113 +141,26 @@
 | 🇺🇸 美音 | [abandon /əˈbændən/](https://0xlei.tech/words/atlas/audio/us/abandon.mp3) |
 | 📖 例句朗读 | [We had to abandon our car in the snow.](https://0xlei.tech/words/atlas/audio/ex/abandon.mp3) |
 
-全部 2,613 个词都配有英音、美音和例句朗读，还有 901 个重点词的第二条例句也配了朗读。
-
 ### 环境声与交互声音
 
 | | |
 |---|---|
-| 🎙 **开屏配音** | [「欢迎来到拾词，一起点亮剑桥词汇」](https://0xlei.tech/words/sfx/splash-voice.mp3)：星尘汇聚成“拾词”，大门打开 |
+| 🎙 **开屏配音** | [「欢迎来到拾词，一起点亮剑桥词汇」](https://0xlei.tech/words/sfx/splash-voice.mp3)：星尘汇聚成"拾词"，大门打开 |
 | 🌌 **星图配音** | [「这是你的词汇星图。每学会一个词，就点亮一颗星。」](https://0xlei.tech/words/sfx/voice-galaxy-hello.mp3) |
 | 🎵 **星空音乐** | [一段可无缝循环的原创配乐](https://0xlei.tech/words/sfx/amb-stars.mp3)，默认陪你背词 |
 | 🌧 **6 段环境声** | [雨天图书馆](https://0xlei.tech/words/sfx/amb-rain.mp3) · [清晨海岸](https://0xlei.tech/words/sfx/amb-sea.mp3) · [林间早晨](https://0xlei.tech/words/sfx/amb-forest.mp3) · [夜晚壁炉](https://0xlei.tech/words/sfx/amb-fire.mp3) · [远航船舱](https://0xlei.tech/words/sfx/amb-voyage.mp3) · [安静咖啡馆](https://0xlei.tech/words/sfx/amb-cafe.mp3) |
 | ✨ **界面音效** | 答对、答错、翻卡、打字、连胜、点亮星星……每个操作都有自己的声音；读单词时背景音会自动压低 |
 
-全部素材都在仓库里：插画在 `public/atlas/img/`，录音在 `public/atlas/audio/`，这两类按 CC BY 4.0 开放；界面声音和配乐在 `public/sfx/`，随应用一起提供。
+## 内容来源与局限
 
-
-</details>
-
-## 本地运行
-
-需要 **Node.js 20+** 和 npm。仓库含完整图片与录音，首次下载可能较久。
-
-```bash
-git clone --depth 1 https://github.com/designfuchen/word-atlas.git
-cd word-atlas
-npm ci
-npm run dev
-```
-
-打开 **http://localhost:5188**。
-
-```bash
-npm test             # 单元测试
-npm run check:atlas  # 词库结构与媒体校验
-npm run build        # 构建到 dist/
-```
-
-子路径部署：`ATLAS_BASE=/words/ npm run build`。完整说明见 [部署文档](docs/deployment.md)。
-
-**技术栈**：React 19 · TypeScript · Vite · ts-fsrs · WebGL2
-
-## 开放数据
-
-不仅可以直接使用应用，也可以把词库用于自己的学习工具、Anki 牌组或研究项目。
-
-| 资源 | 开源版内容 | 入口 |
-| :--- | :--- | :--- |
-| 词条 | **3,097** 条，聚焦剑桥 KET(A2)/PET(B1)，19 个话题 | [JSON](data/word-atlas.json) · [CSV](data/word-atlas.csv) |
-| 例句 | **6,194** 条，日常与考试语境，附中文翻译 | [字段说明](docs/dataset.md) |
-| 插画 | **2,613** 幅，512 px WebP，另有缩略图 | [图片目录](public/atlas/img/) |
-| 录音 | **2,613** 个词的英音、美音与例句朗读（另有 901 个考试句朗读） | [音频目录](public/atlas/audio/) |
-
-```python
-import json
-from pathlib import Path
-
-words = json.loads(Path("data/word-atlas.json").read_text(encoding="utf-8"))
-b2_environment = [w for w in words if w["cefr"] == "B2" and w["topic"] == "environment"]
-```
-
-<details>
-<summary><b>查看一条词条的数据结构</b></summary>
-
-```json
-{
-  "id": "principle",
-  "w": "principle",
-  "uk": "/ˈprɪnsəpəl/",
-  "us": "/ˈprɪnsəpəl/",
-  "senses": [{ "pos": "n.", "zh": "原则；行为准则", "en": "A belief or rule that guides decisions and behaviour." }],
-  "ex": [
-    { "en": "I refused the extra money as a matter of principle.", "zh": "出于原则，我拒绝了那笔额外的钱。" },
-    { "en": "The principle of equal opportunity should guide policies designed to improve access to higher education.", "zh": "…" }
-  ],
-  "col": ["in principle｜原则上", "basic principle｜基本原则"],
-  "fam": ["principled (adj.)"],
-  "tip": "principle 是原则；principal 是校长、主要的。",
-  "cefr": "B2",
-  "topic": "thinking"
-}
-```
-
-</details>
-
-### 内容来源与局限
-
-释义、例句、插画和录音为本项目生成：文字与插画使用生成式 AI，语音使用 ElevenLabs。内容经过自动结构与一致性校验，**尚未逐条人工审校**，可能出现释义、例句、插画或发音错误。它不是官方剑桥词表，也不承诺提分。
-
-[内容生成流程](docs/pipeline.md) · [记忆模型](docs/learning-model.md) · [生成脚本](scripts/atlas/)
-
-## 参与贡献
-
-发现问题时，请附上**词条 ID、复现步骤和预期结果**。内容纠错如有词典或其他可靠依据，也请一并提供。
-
-- [报告问题](https://github.com/designfuchen/word-atlas/issues/new/choose)：词条纠错、界面问题或使用建议。
-- [贡献指南](CONTRIBUTING.md)：数据同步、代码规范和提交前检查。
-- [安全政策](SECURITY.md)：安全问题的反馈方式。
+释义、例句、插画和录音为项目生成：文字与插画使用生成式 AI，语音使用合成语音。内容经过自动结构与一致性校验，**尚未逐条人工审校**，可能出现释义、例句、插画或发音错误。它不是官方剑桥词表，也不承诺提分。
 
 ## 授权
 
-| 范围 | 许可 |
-| :--- | :--- |
-| 应用代码 | [MIT](LICENSE) |
-| 词库文本、插画与词条录音 | [CC BY 4.0](CONTENT_LICENSE.md)，署名 Word Atlas contributors（拾词） |
-| 第三方依赖与字体 | 遵循各自许可，详见相应文件 |
+应用与词库内容为**专有产品**，版权所有 © zhixun1981-oss（拾词 Word Atlas）。未经授权，禁止复制、分发、出售或二次开发后发布。付费用户仅获得个人使用许可。
 
 ---
 
-由 [@designfuchen](https://github.com/designfuchen) 制作。产品进展与制作过程见 [X · @yangleiocx3](https://x.com/yangleiocx3)。
+由 [@zhixun1981-oss](https://github.com/zhixun1981-oss) 制作。产品进展与制作过程见 [X · @yangleiocx3](https://x.com/yangleiocx3)。
 
-如果拾词对你有用，欢迎 Star，或把它分享给正在学英语的朋友。
+如果拾词对你有用，欢迎把它分享给正在学英语的朋友。

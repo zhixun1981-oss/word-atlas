@@ -1,17 +1,15 @@
 <div align="center">
 
-<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v2.jpg" alt="拾词 · Word Atlas — an illustrated world of words" width="100%"></a>
+<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v3.jpg" alt="拾词 · Word Atlas — an illustrated world of words" width="100%"></a>
 
 # Word Atlas · 拾词
 
 **See the word. Hear it. Make it yours.**
 
-3,097 Cambridge KET/PET words · Original illustrations · UK & US audio · Spaced repetition
+7,000+ Cambridge KET/PET words · Original illustrations · UK & US audio · Spaced repetition
 
-[**Try Word Atlas ↗**](https://0xlei.tech/words/)　 /　 [48-second film](docs/assets/launch.mp4)　 /　 [Get the dataset](data/)　 /　 [简体中文](README.md)
+[**Try Word Atlas ↗**](https://0xlei.tech/words/)　 /　 [48-second film](docs/assets/launch.mp4)　 /　 [简体中文](README.md)
 
-[![Code: MIT](https://img.shields.io/badge/Code-MIT-17283B?style=flat-square)](LICENSE)
-[![Dataset: CC BY 4.0](https://img.shields.io/badge/Dataset-CC_BY_4.0-AD5038?style=flat-square)](CONTENT_LICENSE.md)
 [![Follow on X](https://img.shields.io/badge/X-@yangleiocx3-17283B?style=flat-square&logo=x&logoColor=white)](https://x.com/yangleiocx3)
 
 <br>
@@ -26,7 +24,7 @@
 
 Word Atlas is an illustrated vocabulary app built on the Cambridge KET/PET word lists for Chinese-speaking learners. Connect words with scenes and pronunciation, practise active recall, and return to them with FSRS spaced repetition. No account required. Learning progress stays on your device.
 
-> **Version scope:** This repository contains the open-source foundation of Word Atlas and its dataset. The hosted website evolves separately and may have different features. The code and dataset here remain available under their respective MIT and CC BY 4.0 licenses.
+> **Version scope:** The full version is a paid macOS desktop app with the complete 7,000+ word library and all AI features — see the Chinese README for purchase info. This repository is a proprietary product; all content is © zhixun1981-oss (Word Atlas · 拾词).
 
 [Preview](#preview) · [Learning loop](#learning-loop) · [Quick start](#quick-start) · [Open dataset](#open-dataset) · [Contributing](#contributing)
 
@@ -75,13 +73,11 @@ Explore 19 topic groups, rotate and zoom the galaxy, and select a star to open i
 
 Listen to a sample: **abandon** — [UK](public/atlas/audio/uk/abandon.mp3) · [US](public/atlas/audio/us/abandon.mp3) · [Example](public/atlas/audio/ex/abandon.mp3).
 
-## Quick start
+## Quick start (for development)
 
-Requires **Node.js 20+** and npm. This repository includes the full image and audio collection, so the initial download can take time.
+The full version is distributed as a macOS desktop app — see the Chinese README for purchase. This repository is proprietary; the following is for development reference only. Requires **Node.js 20+** and npm.
 
 ```bash
-git clone --depth 1 https://github.com/designfuchen/word-atlas.git
-cd word-atlas
 npm ci
 npm run dev
 ```
@@ -127,7 +123,7 @@ Text and illustrations were generated for this project using AI; speech was synt
 
 Please include the **word ID, reproduction steps and expected result** when reporting a problem. For vocabulary corrections, reliable dictionary references are welcome.
 
-- [Report an issue](https://github.com/designfuchen/word-atlas/issues/new/choose)
+- [Report an issue](https://github.com/zhixun1981-oss/word-atlas/issues/new/choose)
 - [Contribution guide](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)
 
@@ -141,6 +137,6 @@ Please include the **word ID, reproduction steps and expected result** when repo
 
 ---
 
-Made by [@designfuchen](https://github.com/designfuchen). Follow the build on [X · @yangleiocx3](https://x.com/yangleiocx3).
+Made by [@zhixun1981-oss](https://github.com/zhixun1981-oss). Follow the build on [X · @yangleiocx3](https://x.com/yangleiocx3).
 
 If Word Atlas helps you, consider starring the repository or sharing it with another learner.

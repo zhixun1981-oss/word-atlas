@@ -1,25 +1,13 @@
-MIT License
+拾词 Word Atlas — 专有版权声明
+===============================
 
-Copyright (c) 2026 Word Atlas contributors
+Copyright © 2026 zhixun1981-oss（拾词 Word Atlas）。保留所有权利。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+本软件及其词库内容（包括但不限于应用代码、界面、插画、音频、例句与文案）
+为专有产品。未经版权所有者书面授权：
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+- 不得复制、修改、分发或转售本软件及其内容；
+- 不得将本软件或其内容用于任何形式的二次开发、再发布或公开托管；
+- 付费用户仅获得个人使用的非独占许可，不得转授权。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-Scope: This license covers project code, original interface artwork, and
-technical documentation. Vocabulary learning content, third-party media,
-and generated recordings are governed separately by CONTENT_LICENSE.md.
+商标说明：「拾词」「Word Atlas」为本产品品牌，未经许可不得使用。
