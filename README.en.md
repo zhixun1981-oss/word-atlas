@@ -1,12 +1,12 @@
 <div align="center">
 
-<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v2.jpg" alt="词光 · Word Atlas — an illustrated world of words" width="100%"></a>
+<a href="https://0xlei.tech/words/"><img src="docs/assets/cover-v2.jpg" alt="拾词 · Word Atlas — an illustrated world of words" width="100%"></a>
 
-# Word Atlas · 词光
+# Word Atlas · 拾词
 
 **See the word. Hear it. Make it yours.**
 
-7,298 IELTS words · Original illustrations · UK & US audio · Spaced repetition
+3,097 Cambridge KET/PET words · Original illustrations · UK & US audio · Spaced repetition
 
 [**Try Word Atlas ↗**](https://0xlei.tech/words/)　 /　 [48-second film](docs/assets/launch.mp4)　 /　 [Get the dataset](data/)　 /　 [简体中文](README.md)
 
@@ -24,7 +24,7 @@
 
 ---
 
-Word Atlas is an illustrated IELTS vocabulary app for Chinese-speaking learners. Connect words with scenes and pronunciation, practise active recall, and return to them with FSRS spaced repetition. No account required. Learning progress stays on your device.
+Word Atlas is an illustrated vocabulary app built on the Cambridge KET/PET word lists for Chinese-speaking learners. Connect words with scenes and pronunciation, practise active recall, and return to them with FSRS spaced repetition. No account required. Learning progress stays on your device.
 
 > **Version scope:** This repository contains the open-source foundation of Word Atlas and its dataset. The hosted website evolves separately and may have different features. The code and dataset here remain available under their respective MIT and CC BY 4.0 licenses.
 
@@ -104,9 +104,9 @@ Use the app as it is, or build your own learning tools, Anki decks and research 
 
 | Resource | Repository edition | Download / documentation |
 | :--- | :--- | :--- |
-| Entries | **7,298**, CEFR A1–C2, 19 topics | [JSON](data/word-atlas.json) · [CSV](data/word-atlas.csv) |
-| Examples | **14,596**, everyday and IELTS contexts, with Chinese translations | [Schema](docs/dataset.md) |
-| Illustrations | **7,298**, 512 px WebP plus thumbnails | [Images](public/atlas/img/) |
+| Entries | **3,097**, Cambridge KET(A2)/PET(B1), 19 topics | [JSON](data/word-atlas.json) · [CSV](data/word-atlas.csv) |
+| Examples | **6,194**, everyday and exam contexts, with Chinese translations | [Schema](docs/dataset.md) |
+| Illustrations | **2,613**, 512 px WebP plus thumbnails | [Images](public/atlas/img/) |
 | Recordings | **22,905**, UK/US words and example sentences | [Audio](public/atlas/audio/) |
 
 ```python
@@ -119,7 +119,7 @@ b2_environment = [w for w in words if w["cefr"] == "B2" and w["topic"] == "envir
 
 ### Provenance and limitations
 
-Text and illustrations were generated for this project using AI; speech was synthesized with ElevenLabs. Automated structure and consistency checks have been performed, but **the entire collection has not been manually reviewed**. Definitions, examples, illustrations or pronunciation may contain errors. This is not an official IELTS list and does not promise score improvements.
+Text and illustrations were generated for this project using AI; speech was synthesized with ElevenLabs. Automated structure and consistency checks have been performed, but **the entire collection has not been manually reviewed**. Definitions, examples, illustrations or pronunciation may contain errors. This is not an official Cambridge word list and does not promise score improvements.
 
 [Generation pipeline](docs/pipeline.md) · [Learning model](docs/learning-model.md) · [Scripts](scripts/atlas/)
 
@@ -136,7 +136,7 @@ Please include the **word ID, reproduction steps and expected result** when repo
 | Scope | License |
 | :--- | :--- |
 | Application code | [MIT](LICENSE) |
-| Vocabulary text, illustrations and word recordings | [CC BY 4.0](CONTENT_LICENSE.md); credit “Word Atlas contributors（词光）” |
+| Vocabulary text, illustrations and word recordings | [CC BY 4.0](CONTENT_LICENSE.md); credit “Word Atlas contributors（拾词）” |
 | Dependencies and fonts | Their respective licenses |
 
 ---

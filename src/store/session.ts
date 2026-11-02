@@ -1,3 +1,4 @@
+import { resolveLevel, usedLevels } from "../atlas/levels";
 import type { Atlas, WordRef } from "../atlas/types";
 import { MEDIA } from "../atlas/types";
 import { hashSeed, normalize, shuffle } from "../lib/text";
@@ -11,6 +12,27 @@ export function dueIds(p: Progress, now = Date.now()) {
     .map(([id]) => id);
 }
 
+/**
+ * 未来 7 天每天到期的复习量，第 0 天（今天）含所有已过期。
+ * 今日页与我的页共用这一份，别各算各的。
+ */
+export function forecastDue(p: Progress, now = Date.now()): number[] {
+  const start = new Date(now);
+  start.setHours(0, 0, 0, 0);
+  const t0 = start.getTime();
+  const out: number[] = [];
+  for (let i = 0; i < 7; i++) {
+    const from = t0 + i * 86400000;
+    const to = from + 86400000 - 1;
+    let n = 0;
+    for (const c of Object.values(p.cards)) {
+      if (i === 0 ? c.due <= to : c.due >= from && c.due <= to) n++;
+    }
+    out.push(n);
+  }
+  return out;
+}
+
 export function newToday(p: Progress) {
   return p.days[dayKey()]?.n ?? 0;
 }
@@ -18,15 +40,21 @@ export function newToday(p: Progress) {
 /** Next unseen words along the learning path, starting at the learner's level. */
 export function nextNew(atlas: Atlas, p: Progress, settings: Settings, count: number) {
   const out: string[] = [];
-  const pass = (from: number) => {
+  const take = (lv: number) => {
     for (const w of atlas.words) {
       if (out.length >= count) return;
-      if (w.cefr < from || p.cards[w.id] || out.includes(w.id)) continue;
+      if (w.cefr !== lv || p.cards[w.id] || out.includes(w.id)) continue;
       out.push(w.id);
     }
   };
-  pass(settings.startLevel);
-  if (out.length < count) pass(0);
+  const used = usedLevels(atlas);
+  const start = resolveLevel(atlas, settings.startLevel);
+  // 从设定档位往下逐级扫，本档学完了先补下一档，而不是直接跳回 A1。
+  // 这里曾经是 pass(startLevel) 之后直接 pass(0)：设定档位若恰好是空档
+  // （比如选了 B2，而库里最高只有 B1），第一轮一个词都取不到，
+  // 于是所有高级学习者第一天都从 A1 的 cloud 开始。
+  for (const lv of used.filter((l) => l <= start).reverse()) take(lv);
+  if (out.length < count) for (const lv of used.filter((l) => l > start)) take(lv);
   return out;
 }
 

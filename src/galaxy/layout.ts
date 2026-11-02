@@ -1,7 +1,7 @@
 import type { Atlas } from "../atlas/types";
 import { hashSeed } from "../lib/text";
 
-/** Nineteen star colours, one per IELTS topic, tuned to glow on deep navy. */
+/** Nineteen star colours, one per topic, tuned to glow on deep navy. */
 export const TOPIC_COLORS = [
   "#f2c46d", "#ef8f6b", "#8fd0c8", "#9fb8ff", "#9be38f", "#ff9fa8", "#f7d9a8", "#c6a7ff", "#ffd36b", "#7fc4ff",
   "#ffb38a", "#86e0b5", "#d8c3a5", "#b5e48c", "#ffe6b0", "#ff8fc3", "#a8d8ff", "#ffcf7a", "#e0b0ff",
@@ -33,7 +33,7 @@ export interface GalaxyLayout {
 }
 
 /**
- * A spiral galaxy: each IELTS topic owns an arm, easy words sit near the core and
+ * A spiral galaxy: each topic owns an arm, easy words sit near the core and
  * the hardest at the rim, so learning visibly travels outward.
  */
 export function layoutGalaxy(atlas: Atlas): GalaxyLayout {

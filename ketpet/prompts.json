@@ -1,0 +1,194 @@
+[
+ {
+  "id": "good-morning",
+  "prompt": "清晨教室门口，一位老师微笑向学生们招手说早上好，孩子们背着书包开心回应，阳光洒进走廊。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "good morning",
+  "zh": "exclam. 早上好"
+ },
+ {
+  "id": "advert",
+  "prompt": "表现“n. 广告”的情景：I saw an advert for the new phone on TV.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "advert",
+  "zh": "n. 广告（英式口语）"
+ },
+ {
+  "id": "ages",
+  "prompt": "表现“n. 很久”的情景：I haven't seen you for ages!。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "ages",
+  "zh": "n. 很久（口语）；年龄（复数）"
+ },
+ {
+  "id": "air-force",
+  "prompt": "表现“n. 空军”的情景：His uncle is a pilot in the air force.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "air force",
+  "zh": "n. 空军"
+ },
+ {
+  "id": "alarm-clock",
+  "prompt": "表现“n. 闹钟”的情景：My alarm clock rings at seven every morning.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "alarm clock",
+  "zh": "n. 闹钟"
+ },
+ {
+  "id": "all-kinds-of",
+  "prompt": "表现“phr. 各种各样的”的情景：The market sells all kinds of fruit and vegetables.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "all kinds of",
+  "zh": "phr. 各种各样的"
+ },
+ {
+  "id": "all-sorts-of",
+  "prompt": "表现“phr. 各种各样的”的情景：The toy shop has all sorts of board games.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "all sorts of",
+  "zh": "phr. 各种各样的"
+ },
+ {
+  "id": "an",
+  "prompt": "一个红苹果放在餐桌上，旁边一只鸡蛋和一把叉子，体现单个物品的冠词概念。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "an",
+  "zh": "art. 一个（用于元音音素开头的词前）"
+ },
+ {
+  "id": "answerphone",
+  "prompt": "表现“n. 电话答录机”的情景：She left a message on my answerphone.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "answerphone",
+  "zh": "n. 电话答录机"
+ },
+ {
+  "id": "apart-from",
+  "prompt": "表现“prep. 除了…之外”的情景：Apart from the weather, the trip was perfect.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "apart from",
+  "zh": "prep. 除了…之外"
+ },
+ {
+  "id": "apartment-building",
+  "prompt": "表现“n. 公寓楼”的情景：They live on the fifth floor of an apartment building.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "apartment building",
+  "zh": "n. 公寓楼"
+ },
+ {
+  "id": "as-long-as",
+  "prompt": "表现“conj. 只要”的情景：You can borrow the book as long as you return it.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "as long as",
+  "zh": "conj. 只要；和…一样长"
+ },
+ {
+  "id": "as-well",
+  "prompt": "表现“adv. 也”的情景：She speaks French, and she speaks German as well.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "as well",
+  "zh": "adv. 也；还"
+ },
+ {
+  "id": "aspirin",
+  "prompt": "表现“n. 阿司匹林”的情景：She took an aspirin for her headache.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "aspirin",
+  "zh": "n. 阿司匹林（药片）"
+ },
+ {
+  "id": "at-all",
+  "prompt": "表现“phr. 完全”的情景：I don't like this film at all.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at all",
+  "zh": "phr. 完全；根本（用于否定句、疑问句）"
+ },
+ {
+  "id": "at-first",
+  "prompt": "表现“phr. 起初”的情景：At first, the maths problem seemed difficult.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at first",
+  "zh": "phr. 起初；一开始"
+ },
+ {
+  "id": "at-last",
+  "prompt": "表现“phr. 终于”的情景：At last, the bus arrived!。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at last",
+  "zh": "phr. 终于；最后"
+ },
+ {
+  "id": "at-least",
+  "prompt": "表现“phr. 至少”的情景：You should sleep at least eight hours a night.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at least",
+  "zh": "phr. 至少"
+ },
+ {
+  "id": "at-present",
+  "prompt": "表现“phr. 目前”的情景：At present, she is studying in London.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at present",
+  "zh": "phr. 目前；现在"
+ },
+ {
+  "id": "at-the-same-time",
+  "prompt": "表现“phr. 同时”的情景：The two trains arrived at the station at the same time.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "at the same time",
+  "zh": "phr. 同时"
+ },
+ {
+  "id": "athletics",
+  "prompt": "表现“n. 田径运动”的情景：She is good at athletics, especially running.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "athletics",
+  "zh": "n. 田径运动"
+ },
+ {
+  "id": "babysit",
+  "prompt": "表现“v. 照看小孩”的情景：She babysits for the neighbours on Friday nights.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "babysit",
+  "zh": "v. 照看小孩（临时保姆）"
+ },
+ {
+  "id": "backpacker",
+  "prompt": "表现“n. 背包客”的情景：Backpackers often stay in cheap hostels.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "backpacker",
+  "zh": "n. 背包客"
+ },
+ {
+  "id": "backpacking",
+  "prompt": "表现“n. 背包旅行”的情景：They went backpacking across Europe last summer.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "backpacking",
+  "zh": "n. 背包旅行"
+ },
+ {
+  "id": "bank-account",
+  "prompt": "表现“n. 银行账户”的情景：She opened a bank account to save her pocket money.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "bank account",
+  "zh": "n. 银行账户"
+ },
+ {
+  "id": "banking",
+  "prompt": "表现“n. 银行业”的情景：He works in banking in the city centre.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "banking",
+  "zh": "n. 银行业；银行业务"
+ },
+ {
+  "id": "bathing-suit",
+  "prompt": "表现“n. 泳衣”的情景：She bought a new bathing suit for the beach holiday.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "bathing suit",
+  "zh": "n. 泳衣"
+ },
+ {
+  "id": "be",
+  "prompt": "表现“v. 是”的情景：I am twelve years old.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "be",
+  "zh": "v. 是；在；成为"
+ },
+ {
+  "id": "be-over",
+  "prompt": "表现“phr. 结束”的情景：The lesson is over at half past three.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "be over",
+  "zh": "phr. 结束；完了"
+ },
+ {
+  "id": "because-of",
+  "prompt": "表现“prep. 因为”的情景：The match was cancelled because of the rain.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "because of",
+  "zh": "prep. 因为；由于"
+ },
+ {
+  "id": "blogger",
+  "prompt": "表现“n. 博主”的情景：She is a food blogger who posts recipes online.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "blogger",
+  "zh": "n. 博主"
+ },
+ {
+  "id": "board-game",
+  "prompt": "表现“n. 棋盘游戏”的情景：We played a board game together last night.。儿童英语教材绘本插画风格，扁平可爱、圆润造型、柔和暖色调（米色/陶土/赭石/鼠尾草绿），简洁干净、场景化生活气息，无任何文字、无水印，正方形构图",
+  "word": "board game",
+  "zh": "n. 棋盘游戏；桌游"
+ }
+]

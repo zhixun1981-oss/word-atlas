@@ -3,11 +3,14 @@ import { transition } from "./motion";
 
 export type Route =
   | { page: "today" }
-  | { page: "atlas"; topic?: string; level?: string; q?: string; view?: string }
+  | { page: "atlas"; topic?: string; level?: string; q?: string; view?: string; syllabus?: string }
   | { page: "learn" }
   | { page: "practice" }
+  | { page: "classroom"; lesson?: string }
+  | { page: "export" }
   | { page: "me" }
-  | { page: "about" };
+  | { page: "about" }
+  | { page: "guide" };
 
 export interface Location {
   route: Route;
@@ -22,10 +25,13 @@ function parse(hash: string): Location {
   const seg = path.split("/").filter(Boolean);
   let route: Route = { page: "today" };
   if (seg[0] === "atlas")
-    route = { page: "atlas", topic: params.get("topic") || undefined, level: params.get("level") || undefined, q: params.get("q") || undefined, view: params.get("view") || undefined };
+    route = { page: "atlas", topic: params.get("topic") || undefined, level: params.get("level") || undefined, q: params.get("q") || undefined, view: params.get("view") || undefined, syllabus: params.get("syllabus") || undefined };
   else if (seg[0] === "learn") route = { page: "learn" };
   else if (seg[0] === "practice") route = { page: "practice" };
+  else if (seg[0] === "classroom") route = { page: "classroom", lesson: params.get("lesson") || undefined };
+  else if (seg[0] === "export") route = { page: "export" };
   else if (seg[0] === "me") route = { page: "me" };
+  else if (seg[0] === "guide") route = { page: "guide" };
   else if (seg[0] === "about") route = { page: "about" };
   else if (seg[0] === "w" && seg[1]) return { route: { page: "atlas" }, word: decodeURIComponent(seg[1]) };
   return { route, word };
@@ -38,7 +44,9 @@ export function href(route: Route, word?: string | null) {
     if (route.level) params.set("level", route.level);
     if (route.q) params.set("q", route.q);
     if (route.view) params.set("view", route.view);
+    if (route.syllabus) params.set("syllabus", route.syllabus);
   }
+  if (route.page === "classroom" && route.lesson) params.set("lesson", route.lesson);
   if (word) params.set("w", word);
   const q = params.toString();
   return `#/${route.page === "today" ? "" : route.page}${q ? `?${q}` : ""}`;

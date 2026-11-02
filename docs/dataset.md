@@ -10,7 +10,7 @@
 | `w` | string | 词头 |
 | `uk` / `us` | string | 英式 / 美式 IPA，带斜杠 |
 | `senses` | `{pos, zh, en}[]` | 1–3 个义项：词性、中文释义、简明英文释义 |
-| `ex` | `{en, zh}[]` | 两条原创例句：`ex[0]` 日常短句，`ex[1]` 雅思语境长句 |
+| `ex` | `{en, zh}[]` | 两条原创例句：`ex[0]` 日常短句，`ex[1]` 考试语境长句 |
 | `col` | string[] | 常用搭配，格式 `english｜中文` |
 | `fam` | string[] | 词族，格式 `word (pos)` |
 | `syn` / `ant` | string[] | 近义 / 反义 |

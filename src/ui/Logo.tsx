@@ -1,14 +1,19 @@
 export function Mark({ size = 28 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" className="mark">
-      <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="1.2 2.2" opacity=".55" />
-      <g className="mark-needle">
-        <path d="M16 3.5 19 16 16 28.5 13 16Z" fill="currentColor" opacity=".9" />
-        <path d="M16 3.5 19 16H13Z" fill="var(--terra)" />
-      </g>
-      <path d="M3.5 16 16 13.4 28.5 16 16 18.6Z" fill="currentColor" opacity=".35" />
-      <circle cx="16" cy="16" r="1.6" fill="var(--paper)" />
+      {/* 圆形背景 */}
+      <rect x="2" y="2" width="28" height="28" rx="8" fill="var(--accent)" opacity="0.1" />
+      {/* 字母 W */}
+      <path
+        d="M7 9 L11 23 L14.5 15 L16 19 L17.5 15 L21 23 L25 9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* 小星点装饰 */}
+      <circle cx="25" cy="8" r="1.5" fill="var(--terra)" />
     </svg>
   );
 }
@@ -18,7 +23,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
     <span className="logo">
       <Mark />
       <span className="logo-text">
-        <b>词光</b>
+        <b>拾词</b>
         {!compact && <small>Word Atlas</small>}
       </span>
     </span>

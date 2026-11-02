@@ -1,4 +1,4 @@
-import { BookOpen, ChevronLeft, ChevronRight, Compass, Github, Keyboard, Moon, Search, Sun, User } from "lucide-react";
+import { BookOpen, ChevronLeft, ChevronRight, Compass, Github, GraduationCap, Keyboard, Moon, Search, Sun, Trophy, User } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AtlasContext, useAtlas, useEntry } from "./atlas/context";
 import { loadOpenAtlas, loadPrivateAtlas } from "./atlas/data";
@@ -7,12 +7,16 @@ import { REPO_URL } from "./config";
 import { closeWord, currentLocation, go, openWord, useLocation, type Route } from "./lib/router";
 import { AtlasPage } from "./pages/Atlas";
 import { About } from "./pages/About";
+import { Classroom } from "./pages/Classroom";
+import { ExportPage } from "./pages/Export";
 import { Learn } from "./pages/Learn";
+import { Guide } from "./pages/Guide";
 import { Me } from "./pages/Me";
 import { Onboarding } from "./pages/Onboarding";
 import { Practice } from "./pages/Practice";
 import { Today } from "./pages/Today";
 import { cue } from "./lib/sound";
+import { setDefaultRate, setPreferredLang, setPreferredVoice, warmUpVoices } from "./lib/tts";
 import { store, useStore } from "./store/store";
 import { EntryView } from "./ui/EntryView";
 import { AmbienceController, AmbiencePicker } from "./ui/Ambience";
@@ -20,12 +24,16 @@ import { Logo } from "./ui/Logo";
 import { Palette } from "./ui/Palette";
 import { Sheet } from "./ui/Sheet";
 import { shouldShowSplash, Splash } from "./ui/Splash";
-import { Toasts } from "./ui/Toast";
+import { Toasts, toast } from "./ui/Toast";
+import { DailyBroadcast } from "./ui/DailyBroadcast";
+import { shouldBroadcast, markBroadcastToday } from "./lib/broadcast";
 
 const NAV: { page: Route["page"]; label: string; icon: typeof Compass }[] = [
   { page: "today", label: "今日", icon: Compass },
   { page: "atlas", label: "图鉴", icon: BookOpen },
+  { page: "classroom", label: "教室", icon: GraduationCap },
   { page: "practice", label: "练习", icon: Keyboard },
+  { page: "guide", label: "百科", icon: Trophy },
   { page: "me", label: "我的", icon: User },
 ];
 
@@ -98,6 +106,52 @@ function Shell({ privateAvailable }: { privateAvailable: boolean }) {
   const [palette, setPalette] = useState(false);
   const [splash, setSplash] = useState(shouldShowSplash);
   const focus = route.page === "learn";
+  const [broadcast, setBroadcast] = useState(false);
+  const voiceName = useStore((s) => s.settings.voice);
+  const accent = useStore((s) => s.settings.accent);
+  const rate = useStore((s) => s.settings.rate);
+
+  // 朗读语音：把用户选的发音人交给 tts，并预热系统语音列表（Chrome 首屏会返回空）。
+  useEffect(() => {
+    setPreferredVoice(voiceName);
+    setPreferredLang(accent === "uk" ? "en-GB" : "en-US");
+    setDefaultRate(rate);
+  }, [voiceName, accent, rate]);
+  useEffect(() => {
+    warmUpVoices();
+    const s = window.speechSynthesis;
+    if (!s) return;
+    const onChange = () => warmUpVoices();
+    s.addEventListener("voiceschanged", onChange);
+    return () => s.removeEventListener("voiceschanged", onChange);
+  }, []);
+
+  useEffect(() => {
+    const fire = () => {
+      const s = store.get().settings;
+      if (shouldBroadcast(s, new Date())) {
+        markBroadcastToday();
+        setBroadcast(true);
+        if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+          try {
+            const n = new Notification("📻 每日单词广播", { body: "今天也来磨磨耳朵～ 点开收听今日单词" });
+            n.onclick = () => {
+              location.hash = "#/";
+              setBroadcast(true);
+              n.close();
+            };
+          } catch {
+            /* notifications may be blocked */
+          }
+        } else {
+          toast("📻 每日单词广播已就绪，去磨磨耳朵吧", "info");
+        }
+      }
+    };
+    fire();
+    const id = window.setInterval(fire, 60_000);
+    return () => window.clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
@@ -125,7 +179,7 @@ function Shell({ privateAvailable }: { privateAvailable: boolean }) {
     <div className={`app ${focus ? "is-focus" : ""}`}>
       {!focus && (
         <header className="topbar">
-          <a className="topbar-logo" href="#/" aria-label="词光 Word Atlas 首页">
+          <a className="topbar-logo" href="#/" aria-label="拾词 Word Atlas 首页">
             <Logo />
           </a>
           <nav className="topnav" aria-label="主导航">
@@ -157,15 +211,18 @@ function Shell({ privateAvailable }: { privateAvailable: boolean }) {
         {route.page === "atlas" && <AtlasPage route={route} />}
         {route.page === "learn" && <Learn />}
         {route.page === "practice" && <Practice />}
+        {route.page === "classroom" && <Classroom />}
+        {route.page === "export" && <ExportPage />}
         {route.page === "me" && <Me privateAvailable={privateAvailable} />}
         {route.page === "about" && <About />}
+        {route.page === "guide" && <Guide />}
       </main>
 
       {!focus && (
         <footer className="footer">
           <Logo compact />
           <p>
-            一词一画，点亮雅思 · 免费开源 ·{" "}
+            一词一画，点亮剑桥 · 免费开源 ·{" "}
             <a href={REPO_URL} target="_blank" rel="noreferrer">
               GitHub
             </a>{" "}
@@ -191,6 +248,7 @@ function Shell({ privateAvailable }: { privateAvailable: boolean }) {
       {splash && <Splash onDone={() => setSplash(false)} />}
       <Toasts />
       <AmbienceController />
+      {broadcast && <DailyBroadcast onClose={() => setBroadcast(false)} />}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { duck } from "./sound";
+import { pickVoice } from "./tts";
 
 let current: HTMLAudioElement | null = null;
 let token = 0;
@@ -40,11 +41,12 @@ async function speak(url: string | null | undefined, text: string, accent: "uk" 
     }
   }
   if (!("speechSynthesis" in window)) return "unsupported" as const;
+  const lang = accent === "uk" ? "en-GB" : "en-US";
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = accent === "uk" ? "en-GB" : "en-US";
+  u.lang = lang;
   u.rate = rate * 0.95;
-  const voices = speechSynthesis.getVoices().filter((v) => v.lang.replace("_", "-") === u.lang);
-  const best = voices.find((v) => /premium|enhanced|natural|google/i.test(v.name)) || voices[0];
+  // 交给 tts 挑自然音色——直接取列表第一个会撞上 macOS 的 Albert / 音效音。
+  const best = pickVoice(lang);
   if (best) u.voice = best;
   await new Promise<void>((r) => {
     u.onend = () => r();

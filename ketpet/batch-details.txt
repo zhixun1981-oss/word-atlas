@@ -1,0 +1,32 @@
+good-morning	good morning	exclam. 早上好	A2	daily	Good morning, class!
+advert	advert	n. 广告（英式口语）	A2	media	I saw an advert for the new phone on TV.
+ages	ages	n. 很久（口语）；年龄（复数）	B1	daily	I haven't seen you for ages!
+air-force	air force	n. 空军	B1	government	His uncle is a pilot in the air force.
+alarm-clock	alarm clock	n. 闹钟	A2	daily	My alarm clock rings at seven every morning.
+all-kinds-of	all kinds of	phr. 各种各样的	A2	daily	The market sells all kinds of fruit and vegetables.
+all-sorts-of	all sorts of	phr. 各种各样的	A2	daily	The toy shop has all sorts of board games.
+an	an	art. 一个（用于元音音素开头的词前）	A2	daily	She ate an apple after lunch.
+answerphone	answerphone	n. 电话答录机	B1	technology	She left a message on my answerphone.
+apart-from	apart from	prep. 除了…之外	B1	daily	Apart from the weather, the trip was perfect.
+apartment-building	apartment building	n. 公寓楼	A2	city	They live on the fifth floor of an apartment building.
+as-long-as	as long as	conj. 只要；和…一样长	B1	daily	You can borrow the book as long as you return it.
+as-well	as well	adv. 也；还	A2	daily	She speaks French, and she speaks German as well.
+aspirin	aspirin	n. 阿司匹林（药片）	B1	health	She took an aspirin for her headache.
+at-all	at all	phr. 完全；根本（用于否定句、疑问句）	A2	daily	I don't like this film at all.
+at-first	at first	phr. 起初；一开始	B1	thinking	At first, the maths problem seemed difficult.
+at-last	at last	phr. 终于；最后	B1	daily	At last, the bus arrived!
+at-least	at least	phr. 至少	B1	thinking	You should sleep at least eight hours a night.
+at-present	at present	phr. 目前；现在	B1	daily	At present, she is studying in London.
+at-the-same-time	at the same time	phr. 同时	B1	thinking	The two trains arrived at the station at the same time.
+athletics	athletics	n. 田径运动	B1	sport	She is good at athletics, especially running.
+babysit	babysit	v. 照看小孩（临时保姆）	B1	daily	She babysits for the neighbours on Friday nights.
+backpacker	backpacker	n. 背包客	B1	travel	Backpackers often stay in cheap hostels.
+backpacking	backpacking	n. 背包旅行	B1	travel	They went backpacking across Europe last summer.
+bank-account	bank account	n. 银行账户	B1	economy	She opened a bank account to save her pocket money.
+banking	banking	n. 银行业；银行业务	B1	economy	He works in banking in the city centre.
+bathing-suit	bathing suit	n. 泳衣	A2	sport	She bought a new bathing suit for the beach holiday.
+be	be	v. 是；在；成为	A2	daily	I am twelve years old.
+be-over	be over	phr. 结束；完了	B1	daily	The lesson is over at half past three.
+because-of	because of	prep. 因为；由于	A2	daily	The match was cancelled because of the rain.
+blogger	blogger	n. 博主	B1	media	She is a food blogger who posts recipes online.
+board-game	board game	n. 棋盘游戏；桌游	A2	daily	We played a board game together last night.

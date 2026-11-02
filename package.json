@@ -1,6 +1,7 @@
 {
   "name": "word-atlas",
   "version": "1.0.0",
+  "main": "electron/main.cjs",
   "type": "module",
   "description": "A beautiful, open IELTS vocabulary atlas: 7,000+ illustrated words with UK/US audio, original examples and FSRS spaced repetition.",
   "scripts": {
@@ -26,6 +27,8 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^4.7.0",
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0",
     "playwright": "^1.64.1",
     "prettier": "^3.9.10",
     "tsx": "^4.23.15",

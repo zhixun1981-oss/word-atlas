@@ -1,4 +1,4 @@
-import { Grid3x3, List, Search, Sparkles, X } from "lucide-react";
+import { BookOpen, Download, Grid3x3, Languages, List, Search, Shapes, Sparkles, X } from "lucide-react";
 import { Galaxy } from "../galaxy/Galaxy";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useAtlas } from "../atlas/context";
@@ -64,6 +64,8 @@ export function AtlasPage({
   };
   const topic = route.topic;
   const level = route.level;
+  /** 考纲词表模式：all / ket（A1+A2）/ pet（A1+A2+B1），近似剑桥官方 wordlist。 */
+  const syllabus = route.syllabus ?? "all";
 
   useEffect(() => {
     try {
@@ -77,10 +79,14 @@ export function AtlasPage({
     const saved = new Set(bookmarks);
     const ti = topic ? atlas.topics.findIndex((t) => t[0] === topic) : -1;
     const li = level ? atlas.cefr.indexOf(level) : -1;
+    const ketMax = atlas.cefr.indexOf("A2");
+    const petMax = atlas.cefr.indexOf("B1");
     const base = q.trim() ? searchAtlas(atlas, q, 5000) : atlas.words;
     return base.filter((w) => {
       if (ti >= 0 && w.topic !== ti) return false;
       if (li >= 0 && w.cefr !== li) return false;
+      if (syllabus === "ket" && ketMax >= 0 && w.cefr > ketMax) return false;
+      if (syllabus === "pet" && petMax >= 0 && w.cefr > petMax) return false;
       const c = cards[w.id];
       if (status === "new") return !c;
       if (status === "learning") return !!c && !isMastered(c);
@@ -88,24 +94,43 @@ export function AtlasPage({
       if (status === "saved") return saved.has(w.id);
       return true;
     });
-  }, [atlas, q, topic, level, status, cards, bookmarks]);
+  }, [atlas, q, topic, level, syllabus, status, cards, bookmarks]);
 
   const setFilter = (patch: Partial<Extract<Route, { page: "atlas" }>>) =>
-    go({ page: "atlas", topic, level, view: route.view, ...patch }, null, true);
+    go({ page: "atlas", topic, level, view: route.view, syllabus: route.syllabus ?? "all", ...patch }, null, true);
+
+  const counts = useMemo(() => {
+    const levelCounts = new Map<number, number>();
+    const topicCounts = new Map<number, number>();
+    for (const w of atlas.words) {
+      levelCounts.set(w.cefr, (levelCounts.get(w.cefr) ?? 0) + 1);
+      topicCounts.set(w.topic, (topicCounts.get(w.topic) ?? 0) + 1);
+    }
+    return { levelCounts, topicCounts };
+  }, [atlas]);
 
   return (
     <div className={`page atlas ${view === "galaxy" ? "is-galaxy" : ""}`}>
       <header className="atlas-head">
-        <div>
-          <p className="eyebrow">图鉴 · {atlas.count.toLocaleString()} 词</p>
-          <h1 className="display">
-            每个词，
-            <br className="br-sm" />
-            都有一幅画。
-          </h1>
-          <p className="lede">
-            {atlas.examples.toLocaleString()} 条原创例句 · 英美发音 · 按难度和 {atlas.topics.length} 个雅思话题整理
-          </p>
+        <div className="atlas-hero">
+          <div className="atlas-hero-copy">
+            <p className="eyebrow">图鉴 · {atlas.count.toLocaleString()} 词</p>
+            <h1 className="display">
+              每个词，
+              <br className="br-sm" />
+              都有一幅画。
+            </h1>
+            <p className="lede">
+              {atlas.examples.toLocaleString()} 条原创例句 · 英美发音 · 按难度和 {atlas.topics.length} 个话题整理
+            </p>
+            <div className="atlas-stats">
+              <span><BookOpen size={15} /><b>{atlas.count.toLocaleString()}</b> 词汇</span>
+              <span><Languages size={15} /><b>{atlas.examples.toLocaleString()}</b> 例句</span>
+              <span><Sparkles size={15} /><b>{atlas.topics.length}</b> 话题</span>
+              <span><Shapes size={15} /><b>{Object.keys(cards).length.toLocaleString()}</b> 已学</span>
+            </div>
+          </div>
+          <img className="atlas-hero-art" src={`${import.meta.env.BASE_URL}brand/hero.webp`} alt="" loading="lazy" onError={(ev) => (ev.currentTarget.style.display = "none")} />
         </div>
         <label className="search">
           <Search size={19} />
@@ -125,7 +150,11 @@ export function AtlasPage({
               <X size={16} />
             </button>
           )}
+          <kbd className="search-hint">/</kbd>
         </label>
+        <button className="icon-btn atlas-export" onClick={() => go({ page: "export" })} aria-label="导出词表" title="导出词表 / 打印 / CSV">
+          <Download size={19} />
+        </button>
       </header>
 
       <div className="filters">
@@ -137,6 +166,7 @@ export function AtlasPage({
                 onClick={() => setFilter({ level: undefined })}
               >
                 所有难度
+                <em className="chip-count">{atlas.count.toLocaleString()}</em>
               </button>
               {atlas.cefr.map((l) => (
                 <button
@@ -147,6 +177,7 @@ export function AtlasPage({
                   }
                 >
                   {l}
+                  <em className="chip-count">{(counts.levelCounts.get(atlas.cefr.indexOf(l)) ?? 0).toLocaleString()}</em>
                 </button>
               ))}
             </div>
@@ -156,8 +187,9 @@ export function AtlasPage({
                 onClick={() => setFilter({ topic: undefined })}
               >
                 所有主题
+                <em className="chip-count">{atlas.topics.length}</em>
               </button>
-              {atlas.topics.map(([k, name]) => (
+              {atlas.topics.map(([k, name], ti) => (
                 <button
                   key={k}
                   className={`chip-btn ${topic === k ? "is-on" : ""}`}
@@ -166,12 +198,41 @@ export function AtlasPage({
                   }
                 >
                   {name}
+                  <em className="chip-count">{(counts.topicCounts.get(ti) ?? 0).toLocaleString()}</em>
                 </button>
               ))}
             </div>
           </>
         )}
         <div className="filters-row">
+          {view !== "galaxy" && (
+            <div className="segmented segmented-syllabus" role="group" aria-label="考纲词表">
+              <button
+                className={syllabus === "all" ? "is-on" : ""}
+                onClick={() => setFilter({ syllabus: undefined })}
+                aria-pressed={syllabus === "all"}
+                title="全部词库"
+              >
+                全部词库
+              </button>
+              <button
+                className={syllabus === "ket" ? "is-on" : ""}
+                onClick={() => setFilter({ syllabus: syllabus === "ket" ? undefined : "ket" })}
+                aria-pressed={syllabus === "ket"}
+                title="剑桥 A2 Key（KET）官方考纲词汇"
+              >
+                KET 考纲
+              </button>
+              <button
+                className={syllabus === "pet" ? "is-on" : ""}
+                onClick={() => setFilter({ syllabus: syllabus === "pet" ? undefined : "pet" })}
+                aria-pressed={syllabus === "pet"}
+                title="剑桥 B1 Preliminary（PET）官方考纲词汇"
+              >
+                PET 考纲
+              </button>
+            </div>
+          )}
           {view !== "galaxy" && (
             <div className="segmented" role="group" aria-label="学习状态">
               {STATUS.map(([k, label]) => (
@@ -230,6 +291,7 @@ export function AtlasPage({
         <div className="empty">
           <img src={`${import.meta.env.BASE_URL}brand/empty.webp`} alt="" />
           <p>这片星域还没有词。换个筛选条件试试。</p>
+          <button className="btn btn-glass" onClick={() => { setQ(""); setStatus("all"); go({ page: "atlas" }, null, true); }}>清空筛选</button>
         </div>
       ) : view === "grid" ? (
         <VirtualGrid items={list} cards={cards} />
@@ -348,6 +410,7 @@ function VirtualGrid({
               </span>
               <span className="tile-zh">{w.zh}</span>
             </span>
+            <span className={`tile-meter ${st}`} style={{ width: card ? `${Math.min(100, Math.round((card.s / 30) * 100))}%` : "0%" }} />
           </button>,
         );
       }

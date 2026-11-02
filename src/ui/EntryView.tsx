@@ -1,13 +1,20 @@
-import { Bookmark, BookmarkCheck, Lightbulb, Share2 } from "lucide-react";
-import type { Entry, WordRef } from "../atlas/types";
+import { Bookmark, BookmarkCheck, Camera, Lightbulb, Share2 } from "lucide-react";
+import { useState } from "react";
+import type { Entry, Example, WordRef } from "../atlas/types";
 import { useAtlas } from "../atlas/context";
 import { splitHighlight, splitPair } from "../lib/text";
 import { formatInterval, isMastered } from "../store/srs";
 import { toggleBookmark, useStore } from "../store/store";
+import { AiExamples } from "./AiExamples";
 import { Illustration } from "./Illustration";
+import { PictureTalkWord } from "./PictureTalkWord";
 import { Speak } from "./Speak";
+import { SpeechTutor } from "./SpeechTutor";
+import { TheatreTrigger, WordTheatre } from "./WordTheatre";
+import { WordGraph } from "./WordGraph";
 import { shareWord } from "./share";
 import { openWord } from "../lib/router";
+import { UserNote } from "./UserNote";
 
 export function Highlight({ text, word }: { text: string; word: string }) {
   const parts = splitHighlight(text, word);
@@ -52,6 +59,9 @@ export function Pronounce({ entry, refw }: { entry: Entry; refw: WordRef | Entry
 
 export function EntryView({ entry, mode = "detail", eager = true }: { entry: Entry; mode?: "detail" | "intro" | "reveal"; eager?: boolean }) {
   const atlas = useAtlas();
+  const [theatre, setTheatre] = useState<Example | null>(null);
+  const [pictalkOpen, setPictalkOpen] = useState(false);
+  const [pictalkKey, setPictalkKey] = useState(0);
   const ref = atlas.byId.get(entry.id);
   const card = useStore((s) => s.progress.cards[entry.id]);
   const saved = useStore((s) => s.progress.bookmarks.includes(entry.id));
@@ -86,6 +96,17 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
               <button className="icon-btn" onClick={() => shareWord(atlas, entry)} aria-label="生成分享卡片" title="生成分享卡片">
                 <Share2 size={19} />
               </button>
+              <button
+                className="icon-btn"
+                onClick={() => {
+                  setPictalkOpen(true);
+                  setPictalkKey((k) => k + 1);
+                }}
+                aria-label="看图说话"
+                title="看图说话 · 用这幅插画描述并评分"
+              >
+                <Camera size={19} />
+              </button>
             </div>
           )}
         </header>
@@ -100,6 +121,7 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
           {entry.w}
         </h2>
         <Pronounce entry={entry} refw={ref ?? entry} />
+        <SpeechTutor word={entry.w} url={atlas.audio(ref ?? entry, accent)} />
 
         <ol className="senses">
           {entry.senses.map((s, i) => (
@@ -121,10 +143,11 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
             <ul className="examples">
               {entry.ex.map((x, i) => (
                 <li key={i}>
-                  {entry.ex.length > 1 && <span className={`ex-tag ${i ? "is-ielts" : ""}`}>{i ? "雅思语境" : "日常"}</span>}
+                  {entry.ex.length > 1 && <span className={`ex-tag ${i ? "is-ielts" : ""}`}>{i ? "考试语境" : "日常"}</span>}
                   <p className="ex-en" lang="en">
                     <Highlight text={x.en} word={entry.w} />
                     <Speak url={exUrls[i] ?? null} text={x.en} accent={i === 1 && exUrls[1] ? "us" : accent} size="sm" className="ex-speak" />
+                    {mode === "detail" && <TheatreTrigger onOpen={() => setTheatre(x)} active={theatre === x} />}
                   </p>
                   <p className="ex-zh">{x.zh}</p>
                 </li>
@@ -132,6 +155,8 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
             </ul>
           </section>
         )}
+
+        {mode === "detail" && <AiExamples entry={entry} />}
 
         {entry.col.length > 0 && (
           <section className="block">
@@ -152,6 +177,7 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
 
         {(famLinks.length > 0 || entry.syn.length > 0 || entry.ant.length > 0) && (
           <section className="block relations">
+            <WordGraph word={entry.w} fam={famLinks} syn={entry.syn} ant={entry.ant} />
             {famLinks.length > 0 && (
               <div>
                 <h3 className="eyebrow">词族</h3>
@@ -197,7 +223,19 @@ export function EntryView({ entry, mode = "detail", eager = true }: { entry: Ent
             {card.due <= Date.now() ? "现在可以复习" : `下次复习 ${formatInterval(card.due - Date.now())}后`} · 记忆稳定度 {card.s < 1 ? "<1" : Math.round(card.s)} 天 · 已复习 {card.reps} 次
           </p>
         )}
+
+        {mode === "detail" && <UserNote wordId={entry.id} />}
       </div>
+
+      {theatre && <WordTheatre ex={theatre} onClose={() => setTheatre(null)} />}
+      {pictalkOpen && (
+        <PictureTalkWord
+          key={pictalkKey}
+          entry={entry}
+          onExit={() => setPictalkOpen(false)}
+          onAgain={() => setPictalkKey((k) => k + 1)}
+        />
+      )}
     </article>
   );
 }

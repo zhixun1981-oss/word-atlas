@@ -1,5 +1,6 @@
 import type { Atlas, Entry, IndexRow, WordRef } from "./types";
 import { MEDIA } from "./types";
+import { A1_LEVEL, isA1 } from "./a1";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const url = (p: string) => `${BASE}/atlas/${p}`;
@@ -34,6 +35,11 @@ export async function loadOpenAtlas(): Promise<Atlas> {
   const cache = new Map<string, Entry>();
   const pending = new Map<number, Promise<void>>();
 
+  // 把地基词从 A2/B1 挪到 A1。原库 1635 A2 / 1462 B1 / 0 A1，零基础的人
+  // 打开图鉴第一屏没有一个是「这个我认识」的。这些词本来就在库里，
+  // 只是分级偏高了，所以是改标记而不是加词条——音标、插画、录音全都还在。
+  for (const w of words) if (isA1(w.word)) w.cefr = A1_LEVEL;
+
   const loadChunk = (n: number) => {
     let p = pending.get(n);
     if (!p) {
@@ -42,7 +48,16 @@ export async function loadOpenAtlas(): Promise<Atlas> {
           if (!r.ok) throw new Error(`词条加载失败（${r.status}）`);
           return r.json() as Promise<Entry[]>;
         })
-        .then((list) => list.forEach((e) => cache.set(e.id, e)))
+        .then((list) =>
+          list.forEach((e) => {
+            // 分块文件里的 cefr 是生成词库时写死的，和我们重新标过的索引可能不一致。
+            // 以索引为准，否则词条页会显示「A2」，而它在图鉴里挂在 A1 下面。
+            const ref = byId.get(e.id);
+            const tagged = ref === undefined ? undefined : idx.cefr[ref.cefr];
+            if (tagged) e.cefr = tagged;
+            cache.set(e.id, e);
+          }),
+        )
         .catch((e) => {
           pending.delete(n);
           throw e;

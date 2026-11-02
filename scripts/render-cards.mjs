@@ -57,7 +57,7 @@ function card({ width, height, cols, rows, title, sub, chips, tile }) {
   <div class="mosaic">${words.map((w) => `<figure><img src="${thumb(w[0])}"><figcaption>${w[1]}</figcaption></figure>`).join("")}</div>
   <div class="fade"></div>
   <div class="copy">
-    <div class="brand"><svg width="40" height="40" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" fill="none" stroke="#1e2640" stroke-width="1.5"/><path d="M16 3.5 19 16 16 28.5 13 16Z" fill="#1e2640"/><path d="M16 3.5 19 16H13Z" fill="#c4573a"/><circle cx="16" cy="16" r="1.6" fill="#f3ecdf"/></svg>词光 <small>WORD ATLAS</small></div>
+    <div class="brand"><svg width="40" height="40" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" fill="none" stroke="#1e2640" stroke-width="1.5"/><path d="M16 3.5 19 16 16 28.5 13 16Z" fill="#1e2640"/><path d="M16 3.5 19 16H13Z" fill="#c4573a"/><circle cx="16" cy="16" r="1.6" fill="#f3ecdf"/></svg>拾词 <small>WORD ATLAS</small></div>
     <h1 class="serif">${title}</h1>
     <p class="sub">${sub}</p>
     <div class="chips">${chips.map((c) => `<span>${c}</span>`).join("")}</div>

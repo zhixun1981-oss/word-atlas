@@ -1,0 +1,17 @@
+appId: com.wordatlas.app
+productName: Word Atlas
+copyright: "拾词 Word Atlas"
+directories:
+  output: release
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+asar: true
+mac:
+  category: public.app-category.education
+  target:
+    - target: zip
+      arch: [arm64, x64]
+  identity: null
+npmRebuild: false
