@@ -24,7 +24,7 @@
 
 Word Atlas is an illustrated vocabulary app built on the Cambridge KET/PET word lists for Chinese-speaking learners. Connect words with scenes and pronunciation, practise active recall, and return to them with FSRS spaced repetition. No account required. Learning progress stays on your device.
 
-> **Version scope:** The full version is a paid macOS desktop app with the complete 7,000+ word library and all AI features — see the Chinese README for purchase info. This repository is a proprietary product; all content is © zhixun1981-oss (Word Atlas · 拾词).
+> **License:** This repository is open source. The source code is [MIT](LICENSE); vocabulary, illustrations and recordings are [CC BY 4.0](CONTENT_LICENSE.md). It contains the complete application with every feature — clone it, `npm ci`, `npm run dev`.
 
 [Preview](#preview) · [Learning loop](#learning-loop) · [Quick start](#quick-start) · [Open dataset](#open-dataset) · [Contributing](#contributing)
 
@@ -75,7 +75,7 @@ Listen to a sample: **abandon** — [UK](public/atlas/audio/uk/abandon.mp3) · [
 
 ## Quick start (for development)
 
-The full version is distributed as a macOS desktop app — see the Chinese README for purchase. This repository is proprietary; the following is for development reference only. Requires **Node.js 20+** and npm.
+Requires **Node.js 20+** and npm. Everything runs locally — no account, no backend. Only the optional AI features need a local Ollama instance.
 
 ```bash
 npm ci
